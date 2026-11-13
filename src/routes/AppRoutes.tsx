@@ -5,6 +5,7 @@ import Sobre from '../pages/Sobre'
 import Faq from '../pages/Faq'
 import Integrantes from '../pages/Integrantes'
 import NaoEncontrada from '../pages/NaoEncontrada'
+import Contato from '../pages/Contato'
 
 export const router = createBrowserRouter([
   {
@@ -16,6 +17,7 @@ export const router = createBrowserRouter([
       { path: 'faq', element: <Faq /> },
       { path: 'integrantes', element: <Integrantes /> },
       { path: '*', element: <NaoEncontrada /> },
+      { path: 'contato', element: <Contato /> },
     ],
   },
 ])
