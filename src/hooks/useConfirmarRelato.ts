@@ -3,7 +3,7 @@ import { confirmarRelato } from '../services/api'
 import { obterCodigoDispositivo } from '../utils/dispositivo'
 import type { Aviso } from '../types'
 
-// Reúne a lógica de confirmar um relato, usada em mais de uma página.
+// Reúne a lógica de confirmar um relato
 export function useConfirmarRelato(aoConfirmar: () => void) {
   const [emConfirmacao, setEmConfirmacao] = useState<number | null>(null)
   const [aviso, setAviso] = useState<Aviso | null>(null)
