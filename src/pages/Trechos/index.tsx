@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router'
 import TituloPagina from '../../components/TituloPagina'
 import Carregando from '../../components/Carregando'
 import MensagemErro from '../../components/MensagemErro'
@@ -58,6 +59,13 @@ export default function Trechos() {
         titulo="Trechos mapeados"
         subtitulo="Ruas com a nota de acessibilidade calculada a partir dos relatos, dos mais críticos aos melhores."
       />
+
+      <Link
+        to="/trechos/novo"
+        className="mb-6 inline-block rounded bg-primary px-4 py-2 text-sm font-semibold text-white hover:bg-primary-dark"
+      >
+        Cadastrar trecho
+      </Link>
 
       <div className="mb-6 max-w-md">
         <label htmlFor="busca" className="mb-1 block text-sm font-medium">

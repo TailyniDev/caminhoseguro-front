@@ -7,6 +7,7 @@ import type {
   Relato,
   Trecho,
   Painel,
+  NovoTrecho,
 } from '../types'
 
 const BASE_URL = (import.meta.env.VITE_API_URL ?? 'http://localhost:8080').replace(/\/$/, '')
@@ -62,3 +63,9 @@ export const confirmarRelato = (idRelato: number, dados: NovaConfirmacao) =>
   })
 
 export const buscarPainel = () => requisicao<Painel>('/painel')
+
+export const cadastrarTrecho = (dados: NovoTrecho) =>
+  requisicao<Trecho>('/trechos', {
+    method: 'POST',
+    body: JSON.stringify(dados),
+  })

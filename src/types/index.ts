@@ -106,3 +106,9 @@ export interface Painel {
   resolvidos: number
   prioridades: Prioridade[]
 }
+
+export interface NovoTrecho {
+  nomeRua: string
+  bairro: string
+  cidade: string
+}
