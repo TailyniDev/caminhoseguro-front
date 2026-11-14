@@ -1,3 +1,5 @@
+import TituloPagina from '../../components/TituloPagina'
+
 const PERGUNTAS = [
   {
     pergunta: 'O que é o CaminhoSeguro?',
@@ -29,23 +31,20 @@ const PERGUNTAS = [
     resposta:
       'O painel da prefeitura ordena os trechos por prioridade, somando 10 pontos por relato confirmado e 3 por relato pendente. Assim fica claro onde agir primeiro.',
   },
-];
+]
 
-// O "export default" resolve o erro do AppRoutes.tsx
 export default function Faq() {
   return (
-    <div style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
-      <h1>Perguntas Frequentes (FAQ)</h1>
-      
-      {/* Aqui nós estamos USANDO a variável PERGUNTAS, o que resolve o erro dela estar "abandonada" */}
-      <ul style={{ listStyleType: 'none', padding: 0 }}>
-        {PERGUNTAS.map((item, index) => (
-          <li key={index} style={{ marginBottom: '20px', borderBottom: '1px solid #ccc', paddingBottom: '10px' }}>
-            <h3 style={{ margin: '0 0 10px 0', color: '#333' }}>{item.pergunta}</h3>
-            <p style={{ margin: 0, color: '#555' }}>{item.resposta}</p>
-          </li>
+    <section>
+      <TituloPagina titulo="Perguntas frequentes" />
+      <div className="space-y-3">
+        {PERGUNTAS.map((item) => (
+          <details key={item.pergunta} className="rounded border border-slate-200 bg-white p-4">
+            <summary className="cursor-pointer font-medium">{item.pergunta}</summary>
+            <p className="mt-2 text-slate-700">{item.resposta}</p>
+          </details>
         ))}
-      </ul>
-    </div>
-  );
+      </div>
+    </section>
+  )
 }
