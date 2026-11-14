@@ -11,6 +11,7 @@ import NaoEncontrada from "../pages/NaoEncontrada";
 import NovoRelato from "../pages/NovoRelato";
 import Relatos from "../pages/Relatos";
 import Painel from "../pages/Painel";
+import NovoTrecho from "../pages/NovoTrecho";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,7 @@ export const router = createBrowserRouter([
       { path: "relatos/novo", element: <NovoRelato /> },
       { path: "*", element: <NaoEncontrada /> },
       { path: 'painel', element: <Painel /> },
+      { path: 'trechos/novo', element: <NovoTrecho /> },
     ],
   },
 ]);
