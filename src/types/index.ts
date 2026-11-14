@@ -1,27 +1,88 @@
-export interface ErroApi {
-  status: number
+export type StatusRelato = 'PENDENTE' | 'CONFIRMADO' | 'RESOLVIDO'
+
+export type TipoProblema =
+  | 'RAMPA_QUEBRADA'
+  | 'CALCADA_DANIFICADA'
+  | 'SEM_RAMPA'
+  | 'SEM_ILUMINACAO'
+  | 'ALAGAMENTO'
+  | 'OBSTACULO_NA_VIA'
+  | 'OUTRO'
+
+export type PerfilAfetado = 'TODOS' | 'IDOSA' | 'CADEIRANTE' | 'DEFICIENCIA_VISUAL' | 'PEDESTRE_NOTURNO'
+
+export type Classificacao = 'BOA' | 'ATENCAO' | 'CRITICA'
+
+export interface CampoErro {
+  campo: string
   mensagem: string
 }
 
-export interface Local {
-  id: number
-  nome: string
-  endereco: string
-  latitude: number | null
-  longitude: number | null
-  notaAcessibilidade: number | null
-  bairroId: number
+// Formato único de erro devolvido pela API
+export interface ErroApi {
+  timestamp: string
+  status: number
+  erro: string
+  mensagem: string
+  caminho: string
+  detalhes?: CampoErro[]
 }
 
-export type StatusRelato = 'PENDENTE' | 'CONFIRMADO' | 'RESOLVIDO'
+// A API omite campos nulos (non_null), por isso alguns são opcionais
+export interface Trecho {
+  id: number
+  nomeRua: string
+  bairro: string
+  cidade: string
+  latitude?: number
+  longitude?: number
+  dataCadastro: string
+  qtRelatosConfirmados: number
+  qtRelatosPendentes: number
+  notaAcessibilidade: number
+  classificacao: Classificacao
+}
 
 export interface Relato {
   id: number
-  localId: number
+  idTrecho: number
+  nomeRua: string
+  bairro: string
+  tipoProblema: TipoProblema
+  perfilAfetado: PerfilAfetado
   descricao: string
-  data: string
-  gravidade: number
   status: StatusRelato
+  qtConfirmacoes: number
+  dataRegistro: string
+  dataResolucao?: string
 }
 
-export type NovoRelato = Omit<Relato, 'id' | 'data' | 'status'>
+export interface NovoRelato {
+  tipoProblema: TipoProblema
+  perfilAfetado: PerfilAfetado
+  descricao: string
+  codigoDispositivo: string
+}
+
+export interface NovaConfirmacao {
+  codigoDispositivo: string
+  comentario?: string
+}
+
+export interface Confirmacao {
+  id: number
+  idRelato: number
+  comentario?: string
+  dataConfirmacao: string
+}
+
+export interface FiltroRelatos {
+  status?: StatusRelato | ''
+  perfil?: PerfilAfetado | ''
+  busca?: string
+}
+
+export interface Aviso {
+  tipo: 'sucesso' | 'erro'
+  texto: string
+}
