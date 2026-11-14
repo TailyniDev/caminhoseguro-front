@@ -86,3 +86,23 @@ export interface Aviso {
   tipo: 'sucesso' | 'erro'
   texto: string
 }
+
+export type NivelPrioridade = 'ALTA' | 'MEDIA' | 'BAIXA'
+
+export interface Prioridade {
+  idTrecho: number
+  nomeRua: string
+  bairro: string
+  qtConfirmados: number
+  qtPendentes: number
+  pontuacao: number
+  nivel: NivelPrioridade
+}
+
+export interface Painel {
+  totalRelatos: number
+  pendentes: number
+  confirmados: number
+  resolvidos: number
+  prioridades: Prioridade[]
+}
