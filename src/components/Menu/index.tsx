@@ -8,6 +8,7 @@ const LINKS = [
   { to: '/integrantes', rotulo: 'Integrantes' },
   { to: '/faq', rotulo: 'FAQ' },
   { to: '/contato', rotulo: 'Contato' },
+  { to: '/painel', rotulo: 'Painel' },
 ]
 
 interface MenuProps {
