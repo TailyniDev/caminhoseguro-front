@@ -1,32 +1,86 @@
-# React + TypeScript + Vite
+# CaminhoSeguro
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Front-end da solução **CaminhoSeguro**, desenvolvida para a Global Solution 2026/2 · CitizenTech · FIAP.
 
-Currently, two official plugins are available:
+## Objetivo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Plataforma colaborativa que reúne relatos dos cidadãos sobre trechos de rua (rampas quebradas, falta de iluminação, alagamentos) para ajudar as pessoas a escolherem caminhos mais seguros e acessíveis. Este front consome a API REST em Java do grupo: lista trechos com nota de acessibilidade, permite cadastrar trechos e relatos, confirmar relatos de outras pessoas e acompanhar o painel de prioridades da prefeitura.
 
-## React Compiler
+ODS relacionados: **11** (principal), **10** e **13**.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Links
 
-## Expanding the Oxlint configuration
+- **GitHub:** [URL do repositório]
+- **Aplicação (Vercel):** [URL da Vercel]
+- **API (Render):** https://caminhoseguro-api.onrender.com
+- **Vídeo (YouTube):** [URL do vídeo]
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+> A API roda no plano gratuito do Render e hiberna quando fica parada. A primeira requisição pode levar cerca de 1 minuto.
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+## Tecnologias
+
+- React, Vite e TypeScript
+- Tailwind CSS
+- React Router (rotas estáticas e dinâmicas)
+- React Hook Form (validação de formulários)
+- Fetch API para as requisições HTTP
+- oxlint
+- Deploy na Vercel
+
+## Páginas
+
+| Rota | Descrição |
+|---|---|
+| `/` | Home |
+| `/sobre`, `/faq`, `/integrantes`, `/contato` | Páginas institucionais |
+| `/trechos` | Lista de trechos com nota de acessibilidade e busca |
+| `/trechos/:id` | Detalhe do trecho e seus relatos (rota dinâmica) |
+| `/trechos/novo` | Cadastro de trecho (POST) |
+| `/relatos` | Lista de relatos com filtros e confirmação (POST) |
+| `/relatos/novo` | Cadastro de relato (POST) |
+| `/painel` | Painel da prefeitura com prioridades |
+
+## Estrutura
+
+```
+src/
+  components/   componentes reutilizáveis
+  pages/        uma pasta por página
+  routes/       definição das rotas
+  services/     chamadas à API (fetch)
+  hooks/        hooks personalizados
+  types/        tipos e interfaces TypeScript
+  utils/        funções auxiliares
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Como executar
+
+Pré-requisitos: Node.js 20 ou superior.
+
+```bash
+git clone [URL do repositório]
+cd caminhoseguro-front
+npm install
+cp .env.example .env.local
+npm run dev
+```
+
+No `.env.local`, defina a URL da API:
+
+```
+VITE_API_URL=https://caminhoseguro-api.onrender.com
+```
+
+Outros comandos: `npm run build` (build de produção) e `npm run lint` (oxlint).
+
+## Integrantes
+
+| Nome | RM | Turma |
+|---|---|---|
+| Tailyni Victoria Renovato Satirio | 570517 | [1TDSPJ] |
+| Sabrina Fraga Lima | 572548 | [1TDSPJ] |
+| Gabriel Tadeu Telles Brando | 571074 | [1TDSPJ] |
+
+## Contato
+
+[e-mail do grupo ou do representante]
