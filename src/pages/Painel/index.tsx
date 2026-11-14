@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 import TituloPagina from '../../components/TituloPagina'
@@ -5,6 +6,7 @@ import Carregando from '../../components/Carregando'
 import MensagemErro from '../../components/MensagemErro'
 import MensagemVazia from '../../components/MensagemVazia'
 import CardResumo from '../../components/CardResumo'
+import GraficoBarras from '../../components/GraficoBarras'
 import { buscarPainel } from '../../services/api'
 import { estiloNivel } from '../../utils/rotulos'
 import type { Painel } from '../../types'
@@ -57,6 +59,17 @@ export default function PainelPrefeitura() {
             <CardResumo titulo="Pendentes" valor={painel.pendentes} />
             <CardResumo titulo="Confirmados" valor={painel.confirmados} />
             <CardResumo titulo="Resolvidos" valor={painel.resolvidos} />
+          </div>
+
+          <h2 className="mb-4 text-xl font-semibold">Relatos por situação</h2>
+          <div className="mb-8 max-w-xl rounded border border-slate-200 bg-white p-4">
+            <GraficoBarras
+              itens={[
+                { rotulo: 'Pendentes', valor: painel.pendentes, cor: 'bg-alerta' },
+                { rotulo: 'Confirmados', valor: painel.confirmados, cor: 'bg-primary' },
+                { rotulo: 'Resolvidos', valor: painel.resolvidos, cor: 'bg-slate-500' },
+              ]}
+            />
           </div>
 
           <h2 className="text-xl font-semibold">Trechos por prioridade</h2>
