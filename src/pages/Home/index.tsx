@@ -26,7 +26,7 @@ const PASSOS = [
   {
     icone: CheckCircle2,
     titulo: 'Confirme',
-    texto: 'Com 3 pessoas, o relato passa a pesar na nota e vai para a prefeitura.',
+    texto: 'Com 3 pessoas, o relato vira Confirmado e ganha mais peso na nota e no painel da prefeitura.',
   },
 ]
 
