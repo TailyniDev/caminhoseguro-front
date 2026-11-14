@@ -5,9 +5,17 @@ import Carregando from '../../components/Carregando'
 import MensagemErro from '../../components/MensagemErro'
 import MensagemVazia from '../../components/MensagemVazia'
 import CardTrecho from '../../components/CardTrecho'
+import MapaTrechos from '../../components/MapaTrechos'
 import { classeInput } from '../../utils/estilos'
 import { listarTrechos } from '../../services/api'
 import type { Trecho } from '../../types'
+
+type Visao = 'lista' | 'mapa'
+
+const VISOES: { valor: Visao; rotulo: string }[] = [
+  { valor: 'lista', rotulo: 'Lista' },
+  { valor: 'mapa', rotulo: 'Mapa' },
+]
 
 export default function Trechos() {
   const [trechos, setTrechos] = useState<Trecho[]>([])
@@ -15,6 +23,7 @@ export default function Trechos() {
   const [erro, setErro] = useState('')
   const [tentativa, setTentativa] = useState(0)
   const [busca, setBusca] = useState('')
+  const [visao, setVisao] = useState<Visao>('lista')
 
   useEffect(() => {
     let ativo = true
@@ -67,17 +76,39 @@ export default function Trechos() {
         Cadastrar trecho
       </Link>
 
-      <div className="mb-6 max-w-md">
-        <label htmlFor="busca" className="mb-1 block text-sm font-medium">
-          Buscar por rua, bairro ou cidade
-        </label>
-        <input
-          id="busca"
-          type="search"
-          className={classeInput}
-          value={busca}
-          onChange={(e) => setBusca(e.target.value)}
-        />
+      <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
+        <div className="w-full max-w-md">
+          <label htmlFor="busca" className="mb-1 block text-sm font-medium">
+            Buscar por rua, bairro ou cidade
+          </label>
+          <input
+            id="busca"
+            type="search"
+            className={classeInput}
+            value={busca}
+            onChange={(e) => setBusca(e.target.value)}
+          />
+        </div>
+
+        <div
+          role="group"
+          aria-label="Modo de visualização"
+          className="inline-flex overflow-hidden rounded border border-slate-300 bg-white"
+        >
+          {VISOES.map((opcao) => (
+            <button
+              key={opcao.valor}
+              type="button"
+              aria-pressed={visao === opcao.valor}
+              onClick={() => setVisao(opcao.valor)}
+              className={`px-4 py-2 text-sm font-medium ${
+                visao === opcao.valor ? 'bg-primary text-white' : 'text-slate-700 hover:bg-slate-100'
+              }`}
+            >
+              {opcao.rotulo}
+            </button>
+          ))}
+        </div>
       </div>
 
       {carregando && <Carregando texto="Carregando trechos..." />}
@@ -89,13 +120,15 @@ export default function Trechos() {
         />
       )}
 
-      {!carregando && !erro && filtrados.length > 0 && (
+      {!carregando && !erro && filtrados.length > 0 && visao === 'lista' && (
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {filtrados.map((trecho) => (
             <CardTrecho key={trecho.id} trecho={trecho} />
           ))}
         </ul>
       )}
+
+      {!carregando && !erro && filtrados.length > 0 && visao === 'mapa' && <MapaTrechos trechos={filtrados} />}
     </section>
   )
 }
