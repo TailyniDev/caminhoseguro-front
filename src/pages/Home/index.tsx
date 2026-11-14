@@ -1,6 +1,8 @@
 import { Link } from 'react-router'
 import { Accessibility, CheckCircle2, ClipboardList, Droplets, Lightbulb, MapPin } from 'lucide-react'
-import IlustracaoCaminho from '../../components/IlustracaoCaminho'
+import Banner from '../../components/Banner'
+import bannerDesktop from '../../assets/imagens/banners/pc.jpg'
+import bannerMobile from '../../assets/imagens/banners/celular.jpg'
 
 const DESTAQUES = [
   {
@@ -36,10 +38,12 @@ export default function Home() {
       <section className="grid items-center gap-8 md:grid-cols-2">
         <div>
           <h1 className="text-3xl font-bold text-primary md:text-5xl">CaminhoSeguro</h1>
+
           <p className="mt-4 text-lg text-slate-700">
             Um mapa colaborativo com informações reais sobre acessibilidade, alagamentos e iluminação, para que
             ninguém descubra um obstáculo só ao chegar nele.
           </p>
+
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               to="/trechos"
@@ -47,6 +51,7 @@ export default function Home() {
             >
               Ver trechos mapeados
             </Link>
+
             <Link
               to="/relatos/novo"
               className="rounded border border-primary px-6 py-3 font-semibold text-primary hover:bg-primary-bg"
@@ -55,18 +60,26 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <IlustracaoCaminho />
+
+        <Banner
+          desktop={bannerDesktop}
+          mobile={bannerMobile}
+          prioridade
+        />
       </section>
 
       <section aria-labelledby="titulo-destaques">
         <h2 id="titulo-destaques" className="mb-6 text-2xl font-bold">
           O que você encontra
         </h2>
+
         <ul className="grid gap-4 md:grid-cols-3">
           {DESTAQUES.map(({ icone: Icone, titulo, texto }) => (
             <li key={titulo} className="rounded border border-slate-200 bg-white p-5">
               <Icone aria-hidden="true" className="h-8 w-8 text-primary" />
+
               <h3 className="mt-3 font-semibold">{titulo}</h3>
+
               <p className="mt-1 text-sm text-slate-700">{texto}</p>
             </li>
           ))}
@@ -77,6 +90,7 @@ export default function Home() {
         <h2 id="titulo-passos" className="mb-6 text-2xl font-bold">
           Como funciona
         </h2>
+
         <ol className="grid gap-4 md:grid-cols-3">
           {PASSOS.map(({ icone: Icone, titulo, texto }, indice) => (
             <li key={titulo} className="rounded bg-primary-bg p-5">
@@ -84,9 +98,12 @@ export default function Home() {
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary font-bold text-white">
                   {indice + 1}
                 </span>
+
                 <Icone aria-hidden="true" className="h-6 w-6 text-primary-dark" />
               </div>
+
               <h3 className="mt-3 font-semibold text-primary-dark">{titulo}</h3>
+
               <p className="mt-1 text-sm text-slate-800">{texto}</p>
             </li>
           ))}
