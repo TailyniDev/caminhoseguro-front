@@ -30,7 +30,6 @@ export default function Relatos() {
   const [busca, setBusca] = useState('')
   const [buscaAplicada, setBuscaAplicada] = useState('')
 
-  // Depois de confirmar, recarrega a lista para mostrar a nova contagem
   const { confirmar, emConfirmacao, aviso } = useConfirmarRelato(() => setTentativa((t) => t + 1))
 
   useEffect(() => {
@@ -149,11 +148,11 @@ export default function Relatos() {
           <label htmlFor="filtro-busca" className="mb-1 block text-sm font-medium">
             Buscar na descrição
           </label>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             <input
               id="filtro-busca"
               type="search"
-              className={classeInput}
+              className={`${classeInput} min-w-48 flex-1`}
               value={busca}
               onChange={(e) => setBusca(e.target.value)}
             />

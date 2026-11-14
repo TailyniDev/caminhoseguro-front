@@ -16,11 +16,12 @@ export default function CardTrecho({ trecho }: CardTrechoProps) {
         className="flex h-full flex-col justify-between gap-3 rounded border border-slate-200 bg-white p-4 transition-shadow hover:shadow-md"
       >
         <div>
-          <h2 className="font-semibold">{trecho.nomeRua}</h2>
-          <p className="text-sm text-slate-600">
+          <h2 className="break-words font-semibold">{trecho.nomeRua}</h2>
+          <p className="break-words text-sm text-slate-600">
             {trecho.bairro} · {trecho.cidade}
           </p>
         </div>
+
         <div className="space-y-2">
           <span className={`inline-block rounded px-2 py-1 text-sm font-medium ${classificacao.classe}`}>
             Nota {trecho.notaAcessibilidade}/100 · {classificacao.rotulo}
