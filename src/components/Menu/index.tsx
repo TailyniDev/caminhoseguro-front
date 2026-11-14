@@ -2,7 +2,8 @@ import { NavLink } from 'react-router'
 
 const LINKS = [
   { to: '/', rotulo: 'Início' },
-  { to: '/locais', rotulo: 'Locais' },
+  { to: '/trechos', rotulo: 'Trechos' },
+  { to: '/relatos', rotulo: 'Relatos' },
   { to: '/relatos', rotulo: 'Relatos' },
   { to: '/sobre', rotulo: 'Sobre' },
   { to: '/integrantes', rotulo: 'Integrantes' },
