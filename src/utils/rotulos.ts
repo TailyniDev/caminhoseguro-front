@@ -1,4 +1,4 @@
-import type { Classificacao, PerfilAfetado, StatusRelato, TipoProblema } from '../types'
+import type { Classificacao, PerfilAfetado, StatusRelato, TipoProblema, NivelPrioridade } from '../types'
 
 interface Estilo {
   rotulo: string
@@ -38,6 +38,16 @@ const CLASSIFICACAO: Record<Classificacao, Estilo> = {
   CRITICA: { rotulo: 'Crítica', classe: 'bg-red-100 text-red-800' },
 }
 
+const NIVEL: Record<NivelPrioridade, Estilo> = {
+  ALTA: { rotulo: 'Alta', classe: 'bg-red-100 text-red-800' },
+  MEDIA: { rotulo: 'Média', classe: 'bg-alerta-bg text-amber-900' },
+  BAIXA: { rotulo: 'Baixa', classe: 'bg-primary-bg text-primary-dark' },
+}
+
+export function estiloNivel(nivel: string): Estilo {
+  return NIVEL[nivel as NivelPrioridade] ?? NEUTRO
+}
+
 export function estiloStatus(status: string): Estilo {
   return STATUS[status as StatusRelato] ?? NEUTRO
 }
@@ -49,3 +59,4 @@ export function estiloClassificacao(classificacao: string): Estilo {
 export function rotuloDe(mapa: Record<string, string>, chave: string): string {
   return mapa[chave] ?? chave
 }
+
