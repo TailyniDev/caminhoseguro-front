@@ -8,6 +8,7 @@ import Contato from '../pages/Contato'
 import Trechos from '../pages/Trechos'
 import TrechoDetalhe from '../pages/TrechoDetalhe'
 import NaoEncontrada from '../pages/NaoEncontrada'
+import NovoRelato from '../pages/NovoRelato'
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +23,7 @@ export const router = createBrowserRouter([
       { path: 'trechos', element: <Trechos /> },
       { path: 'trechos/:id', element: <TrechoDetalhe /> },
       { path: '*', element: <NaoEncontrada /> },
+      { path: 'relatos/novo', element: <NovoRelato /> },
     ],
   },
 ])

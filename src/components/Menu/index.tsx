@@ -4,7 +4,6 @@ const LINKS = [
   { to: '/', rotulo: 'Início' },
   { to: '/trechos', rotulo: 'Trechos' },
   { to: '/relatos', rotulo: 'Relatos' },
-  { to: '/relatos', rotulo: 'Relatos' },
   { to: '/sobre', rotulo: 'Sobre' },
   { to: '/integrantes', rotulo: 'Integrantes' },
   { to: '/faq', rotulo: 'FAQ' },
