@@ -111,4 +111,6 @@ export interface NovoTrecho {
   nomeRua: string
   bairro: string
   cidade: string
+  latitude?: number
+  longitude?: number
 }
