@@ -143,9 +143,9 @@ caminhoseguro-front/
 
 | Foto | Nome | RM | Turma | Links |
 |---|---|---|---|---|
-| <img src="public/integrantes/sabrina.jpg" alt="Sabrina" width="80"/> | Sabrina Fraga Lima | 572548 | 1TDSPJ | [GitHub](https://github.com/sabrinafraga) · [LinkedIn](https://www.linkedin.com/in/sabrina-fraga-562777403/) |
-| <img src="public/integrantes/tailyni.jpg" alt="Tailyni" width="80"/> | Tailyni Victoria Renovato Satirio | 570517 | 1TDSPJ | [GitHub](https://github.com/TailyniDev) · [LinkedIn](https://www.linkedin.com/in/tailynisatiriodev/) |
-| <img src="public/integrantes/gabriel.jpg" alt="Gabriel" width="80"/> | Gabriel Tadeu Telles Brando | 571074 | 1TDSPJ | [GitHub](https://github.com/Tadeul) · [LinkedIn](https://www.linkedin.com/in/gabriel-tadeu-telles-brando-330216337/) |
+| <img src="src\assets\imagens\sabrina.jpg" alt="Sabrina" width="80"/> | Sabrina Fraga Lima | 572548 | 1TDSPJ | [GitHub](https://github.com/sabrinafraga) · [LinkedIn](https://www.linkedin.com/in/sabrina-fraga-562777403/) |
+| <img src="src\assets\imagens\tailyni.jpg" alt="Tailyni" width="80"/> | Tailyni Victoria Renovato Satirio | 570517 | 1TDSPJ | [GitHub](https://github.com/TailyniDev) · [LinkedIn](https://www.linkedin.com/in/tailynisatiriodev/) |
+| <img src="src\assets\imagens\gabriel.jpg" alt="Gabriel" width="80"/> | Gabriel Tadeu Telles Brando | 571074 | 1TDSPJ | [GitHub](https://github.com/Tadeul) · [LinkedIn](https://www.linkedin.com/in/gabriel-tadeu-telles-brando-330216337/) |
 
 ---
 
@@ -163,7 +163,7 @@ caminhoseguro-front/
 ### Links do projeto
 
 - 🔗 **Repositório GitHub:** https://github.com/TailyniDev/caminhoseguro-front
-- 🌐 **Deploy (Vercel):** [URL da Vercel]
+- 🌐 **Deploy (Vercel):** https://caminhoseguro-front.vercel.app
 - 🎥 **Vídeo de apresentação (YouTube):** https://youtu.be/Qa6nexLXHr0
 - ⚙️ **API publicada (Render):** https://caminhoseguro-api.onrender.com
 - 📦 **Repositório da API:** https://github.com/Tadeul/caminhoseguro-api
