@@ -162,9 +162,9 @@ caminhoseguro-front/
 
 ### Links do projeto
 
-- 🔗 **Repositório GitHub:** [URL do repositório]
+- 🔗 **Repositório GitHub:** https://github.com/TailyniDev/caminhoseguro-front
 - 🌐 **Deploy (Vercel):** [URL da Vercel]
-- 🎥 **Vídeo de apresentação (YouTube):** [URL do vídeo do front]
+- 🎥 **Vídeo de apresentação (YouTube):** https://youtu.be/Qa6nexLXHr0
 - ⚙️ **API publicada (Render):** https://caminhoseguro-api.onrender.com
 - 📦 **Repositório da API:** https://github.com/Tadeul/caminhoseguro-api
 
