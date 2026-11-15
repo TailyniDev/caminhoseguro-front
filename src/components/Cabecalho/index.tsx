@@ -1,6 +1,7 @@
+
 import { useState } from 'react'
-import { Link } from 'react-router'
 import Menu from '../Menu'
+import Logo from '../Logo'
 
 export default function Cabecalho() {
   const [menuAberto, setMenuAberto] = useState(false)
@@ -8,9 +9,7 @@ export default function Cabecalho() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between px-4 py-3">
-        <Link to="/" className="text-xl font-bold text-primary">
-          CaminhoSeguro
-        </Link>
+        <Logo />
 
         <button
           type="button"

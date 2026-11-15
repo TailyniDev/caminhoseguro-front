@@ -4,22 +4,40 @@ import { Link } from 'react-router'
 import TituloPagina from '../../components/TituloPagina'
 import CampoFormulario from '../../components/CampoFormulario'
 import CaixaAviso from '../../components/CaixaAviso'
+import SeletorLocalizacao from '../../components/SeletorLocalizacao'
 import { cadastrarTrecho } from '../../services/api'
 import { classeInput } from '../../utils/estilos'
-import type { Aviso, NovoTrecho as NovoTrechoDados, Trecho } from '../../types'
+import type { Aviso, Trecho } from '../../types'
+
+interface TrechoFormData {
+  nomeRua: string
+  bairro: string
+  cidade: string
+}
+
+interface Ponto {
+  latitude: number
+  longitude: number
+}
 
 export default function NovoTrecho() {
   const [criado, setCriado] = useState<Trecho | null>(null)
   const [aviso, setAviso] = useState<Aviso | null>(null)
+  const [ponto, setPonto] = useState<Ponto | null>(null)
 
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<NovoTrechoDados>({ defaultValues: { nomeRua: '', bairro: '', cidade: '' } })
+  } = useForm<TrechoFormData>({ defaultValues: { nomeRua: '', bairro: '', cidade: '' } })
 
-  async function onSubmit(dados: NovoTrechoDados) {
+  // A coluna do banco guarda 6 casas decimais
+  function escolherPonto(latitude: number, longitude: number) {
+    setPonto({ latitude: Number(latitude.toFixed(6)), longitude: Number(longitude.toFixed(6)) })
+  }
+
+  async function onSubmit(dados: TrechoFormData) {
     setAviso(null)
     setCriado(null)
     try {
@@ -27,9 +45,11 @@ export default function NovoTrecho() {
         nomeRua: dados.nomeRua.trim(),
         bairro: dados.bairro.trim(),
         cidade: dados.cidade.trim(),
+        ...(ponto ?? {}),
       })
       setCriado(trecho)
       reset()
+      setPonto(null)
     } catch (e) {
       // Ex.: 409 quando o trecho já existe
       setAviso({ tipo: 'erro', texto: (e as Error).message })
@@ -91,6 +111,30 @@ export default function NovoTrecho() {
             })}
           />
         </CampoFormulario>
+
+        <div>
+          <p className="mb-1 text-sm font-medium text-slate-800">Localização no mapa (opcional)</p>
+          <p className="mb-2 text-sm text-slate-600">
+            Clique no mapa para marcar onde fica o trecho. Sem localização, ele aparece só na lista.
+          </p>
+          <SeletorLocalizacao latitude={ponto?.latitude} longitude={ponto?.longitude} aoEscolher={escolherPonto} />
+          <div className="mt-2 flex flex-wrap items-center gap-3 text-sm text-slate-700">
+            <span role="status">
+              {ponto
+                ? `Ponto marcado: ${ponto.latitude}, ${ponto.longitude}`
+                : 'Nenhum ponto marcado.'}
+            </span>
+            {ponto && (
+              <button
+                type="button"
+                onClick={() => setPonto(null)}
+                className="rounded border border-slate-300 px-3 py-1 hover:bg-slate-100"
+              >
+                Remover localização
+              </button>
+            )}
+          </div>
+        </div>
 
         <button
           type="submit"
