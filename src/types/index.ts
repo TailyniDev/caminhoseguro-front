@@ -107,6 +107,13 @@ export interface Painel {
   prioridades: Prioridade[]
 }
 
+export interface AtualizacaoRelato {
+  tipoProblema: TipoProblema
+  perfilAfetado: PerfilAfetado
+  descricao: string
+  status: StatusRelato
+}
+
 export interface NovoTrecho {
   nomeRua: string
   bairro: string
