@@ -95,7 +95,6 @@ Todas as chamadas ficam em `src/services/api.ts`, tipadas com as interfaces de `
 ```
 caminhoseguro-front/
 ├── docs/screenshots/        # capturas de tela do README
-├── public/integrantes/      # fotos dos integrantes
 ├── src/
 │   ├── components/          # componentes reutilizáveis (uma pasta por componente)
 │   │   ├── Cabecalho/
@@ -109,7 +108,7 @@ caminhoseguro-front/
 │   │   ├── CampoFormulario/
 │   │   ├── MapaTrechos/
 │   │   └── ...
-│   ├── hooks/               # hooks personalizados (useConfirmarRelato)
+│   ├── hooks/               # hooks personalizados (useConfirmarRelato, useResolverRelato)
 │   ├── pages/
 │   │   ├── Home/
 │   │   ├── Sobre/
@@ -127,6 +126,7 @@ caminhoseguro-front/
 │   ├── services/            # chamadas à API (fetch)
 │   ├── types/               # interfaces e tipos TypeScript
 │   ├── utils/               # funções auxiliares e rótulos
+│   ├── assets/imagens/      # logo, banners e fotos dos integrantes
 │   ├── App.tsx
 │   └── main.tsx
 ├── .env.example
@@ -143,9 +143,9 @@ caminhoseguro-front/
 
 | Foto | Nome | RM | Turma | Links |
 |---|---|---|---|---|
-| <img src="src\assets\imagens\sabrina.jpg" alt="Sabrina" width="80"/> | Sabrina Fraga Lima | 572548 | 1TDSPJ | [GitHub](https://github.com/sabrinafraga) · [LinkedIn](https://www.linkedin.com/in/sabrina-fraga-562777403/) |
-| <img src="src\assets\imagens\tailyni.jpg" alt="Tailyni" width="80"/> | Tailyni Victoria Renovato Satirio | 570517 | 1TDSPJ | [GitHub](https://github.com/TailyniDev) · [LinkedIn](https://www.linkedin.com/in/tailynisatiriodev/) |
-| <img src="src\assets\imagens\gabriel.jpg" alt="Gabriel" width="80"/> | Gabriel Tadeu Telles Brando | 571074 | 1TDSPJ | [GitHub](https://github.com/Tadeul) · [LinkedIn](https://www.linkedin.com/in/gabriel-tadeu-telles-brando-330216337/) |
+| <img src="src/assets/imagens/sabrina.jpg" alt="Sabrina" width="80"/> | Sabrina Fraga Lima | 572548 | 1TDSPJ | [GitHub](https://github.com/sabrinafraga) · [LinkedIn](https://www.linkedin.com/in/sabrina-fraga-562777403/) |
+| <img src="src/assets/imagens/tailyni.jpg" alt="Tailyni" width="80"/> | Tailyni Victoria Renovato Satirio | 570517 | 1TDSPJ | [GitHub](https://github.com/TailyniDev) · [LinkedIn](https://www.linkedin.com/in/tailynisatiriodev/) |
+| <img src="src/assets/imagens/gabriel.jpg" alt="Gabriel" width="80"/> | Gabriel Tadeu Telles Brando | 571074 | 1TDSPJ | [GitHub](https://github.com/Tadeul) · [LinkedIn](https://www.linkedin.com/in/gabriel-tadeu-telles-brando-330216337/) |
 
 ---
 
@@ -176,7 +176,7 @@ caminhoseguro-front/
 
 ```bash
 # clone o repositório
-git clone [URL do repositório]
+git clone https://github.com/TailyniDev/caminhoseguro-front
 
 # entre na pasta do projeto
 cd caminhoseguro-front
@@ -273,7 +273,6 @@ Declaração conforme o regulamento da Global Solution.
 
 ## 📬 Contato
 
-- 📧 [E-MAIL DO GRUPO]
 - GitHub: [TailyniDev](https://github.com/TailyniDev) · [Tadeul](https://github.com/Tadeul) · [sabrinafraga](https://github.com/sabrinafraga)
 - 🤝 Global Solution 2026/2 · CitizenTech · FIAP
 
